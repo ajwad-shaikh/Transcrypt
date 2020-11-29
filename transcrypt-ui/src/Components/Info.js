@@ -29,7 +29,7 @@ function FolderList(props) {
                 <Avatar>
                   <CarIcon />
                 </Avatar>
-                {car.Record ? <ListItemText primary={car.Key} secondary={`${car.Record.owner}'s ${car.Record.make} ${car.Record.model} (${car.Record.colour})`} />
+                {car.Record ? <ListItemText primary={car.Key} secondary={`${car.Record.owner}'s ${car.Record.make} ${car.Record.model} (${car.Record.color})`} />
                 : <ListItemText primary={car.Key} secondary={car.Msg}/>
                 }
             </ListItem>
