@@ -37,13 +37,11 @@ async function main() {
         const network = await gateway.getNetwork('mychannel');
 
         // Get the contract from the network.
-        const contract = network.getContract('Transcrypt');
+        const contract = network.getContract('transcrypt', 'Degree');
 
         // Submit the specified transaction.
-        // createCar transaction - requires 5 argument, ex: ('createCar', 'CAR12', 'Honda', 'Accord', 'Black', 'Tom')
-        // await contract.submitTransaction('createCar', 'CAR12', 'TATA', 'Nano', 'Black', 'IIITDMJ');
-        // changeCarOwner transaction - requires 2 args , ex: ('changeCarOwner', 'CAR12', 'Dave')
-        await contract.submitTransaction('createStudentRecord', 'STUDENT6', 'Abhay Kesharwani', 'B.Tech', 'CSE', '2017304', '2021', '75');
+        // createDegreeRecord transaction - requires 9 argument, ex: ('createDegreeRecord', 'DEGREEId', 'Name', 'Program', 'Specialization', 'EnrollmentId', 'GraduationDate', 'Credits', 'University')
+        await contract.submitTransaction('createDegreeRecord', 'DEGREE10', 'JohnDoe', 'Bachelor of Arts', 'Poetry', '1010', '21-12-2012', '100', 'Harvard University');
         console.log('Transaction has been submitted');
 
         // Disconnect from the gateway.
