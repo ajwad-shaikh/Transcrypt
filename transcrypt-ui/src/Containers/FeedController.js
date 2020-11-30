@@ -38,7 +38,7 @@ class FeedController extends Component {
       this.setState({
         feed : newFeed,
         info: data.payload.sort((a,b) => {
-          return parseInt(a.Key.replace('CAR', ''),10) > parseInt(b.Key.replace('CAR', ''),10)
+          return parseInt(a.Key.replace('DEGREE', ''),10) > parseInt(b.Key.replace('DEGREE', ''),10)
         })
       })
     } else if(data.type === 'START'){

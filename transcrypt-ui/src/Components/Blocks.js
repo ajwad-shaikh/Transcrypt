@@ -22,7 +22,6 @@ function Blocks(props) {
         {props.blocks.map(block => (
           <GridListTile key={block.number}>
             <Block block={block}/>
-            />
           </GridListTile>
         ))}
       </GridList>
