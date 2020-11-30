@@ -14,20 +14,6 @@ CC_SRC_LANGUAGE="javascript"
 CC_SRC_LANGUAGE=`echo "$CC_SRC_LANGUAGE" | tr [:upper:] [:lower:]`
 CC_SRC_PATH="../Transcrypt/transcrypt-contract/"
 
-# if [ "$CC_SRC_LANGUAGE" = "go" -o "$CC_SRC_LANGUAGE" = "golang" ] ; then
-# 	CC_SRC_PATH="../../chaincode/fabcar/go/"
-# elif [ "$CC_SRC_LANGUAGE" = "javascript" ]; then
-# 	CC_SRC_PATH="../../chaincode/fabcar/javascript/"
-# elif [ "$CC_SRC_LANGUAGE" = "java" ]; then
-# 	CC_SRC_PATH="../../chaincode/fabcar/java"
-# elif [ "$CC_SRC_LANGUAGE" = "typescript" ]; then
-# 	CC_SRC_PATH="../../chaincode/fabcar/typescript/"
-# else
-# 	echo The chaincode language ${CC_SRC_LANGUAGE} is not supported by this script
-# 	echo Supported chaincode languages are: go, java, javascript, and typescript
-# 	exit 1
-# fi
-
 # clean out any old identites in the wallets
 rm -rf src/wallet/*
 
@@ -35,7 +21,7 @@ rm -rf src/wallet/*
 pushd ../../test-network
 ./network.sh down
 ./network.sh up createChannel -ca -s couchdb
-./network.sh deployCC -ccn Transcrypt -ccv 1 -cci initLedger -ccl ${CC_SRC_LANGUAGE} -ccp ${CC_SRC_PATH}
+./network.sh deployCC -ccn transcrypt -ccv 1 -cci initLedger -ccl ${CC_SRC_LANGUAGE} -ccp ${CC_SRC_PATH}
 popd
 
 cat <<EOF

@@ -1,7 +1,7 @@
 {
-    "name": "fabcar",
+    "name": "transcrypt",
     "version": "1.0.0",
-    "description": "FabCar contract implemented in JavaScript",
+    "description": "Transcrypt Smart Contracts",
     "main": "index.js",
     "engines": {
         "node": ">=12",
