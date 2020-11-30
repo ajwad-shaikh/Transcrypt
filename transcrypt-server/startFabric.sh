@@ -35,17 +35,14 @@ rm -rf src/wallet/*
 pushd ../../test-network
 ./network.sh down
 ./network.sh up createChannel -ca -s couchdb
-./network.sh deployCC -ccn fabcar -ccv 1 -cci initLedger -ccl ${CC_SRC_LANGUAGE} -ccp ${CC_SRC_PATH}
+./network.sh deployCC -ccn Transcrypt -ccv 1 -cci initLedger -ccl ${CC_SRC_LANGUAGE} -ccp ${CC_SRC_PATH}
 popd
 
 cat <<EOF
 
 Total setup execution time : $(($(date +%s) - starttime)) secs ...
 
-Next, use the FabCar applications to interact with the deployed FabCar contract.
-The FabCar applications are available in multiple programming languages.
-Follow the instructions for the programming language of your choice:
-
+Next, use the Transcrypt applications to interact with the deployed Transcrypt contract.
 JavaScript:
 
   Start by changing into the "javascript" directory:
@@ -56,16 +53,16 @@ JavaScript:
 
   Then run the following applications to enroll the admin user, and register a new user
   called appUser which will be used by the other applications to interact with the deployed
-  FabCar contract:
+  Transcrypt contract:
     node enrollAdmin
     node registerUser
 
   You can run the invoke application as follows. By default, the invoke application will
-  create a new car, but you can update the application to submit other transactions:
+  create a new StudentData, but you can update the application to submit other transactions:
     node invoke
 
   You can run the query application as follows. By default, the query application will
-  return all cars, but you can update the application to evaluate other transactions:
+  return all StudentData, but you can update the application to evaluate other transactions:
     node query
 
 

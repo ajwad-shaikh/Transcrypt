@@ -6,7 +6,8 @@
 
 'use strict';
 
-const FabCar = require('./lib/fabcar');
+const Transcrypt = require('./lib/Transcrypt');
+const FabCar = require('./lib/Transcrypt');
 
-module.exports.FabCar = FabCar;
-module.exports.contracts = [ FabCar ];
+module.exports.Transcrypt = Transcrypt;
+module.exports.contracts = [ Transcrypt ];
