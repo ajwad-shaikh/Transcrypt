@@ -38,7 +38,7 @@ async function main() {
         const network = await gateway.getNetwork('mychannel');
 
         // Get the contract from the network.
-        const contract = network.getContract('fabcar');
+        const contract = network.getContract('Transcrypt');
 
         console.log(contract);
 
@@ -48,7 +48,7 @@ async function main() {
         // const resultCar6 = await contract.evaluateTransaction('queryCar', 'CAR6');
         // const result = [resultCar5.toString(), resultCar6.toString()];
         // queryAllCars transaction - requires no arguments, ex: ('queryAllCars')
-        const result = await contract.evaluateTransaction('queryCar', 'CAR12');
+        const result = await contract.evaluateTransaction('queryAllStudents');
         console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
 
         // Disconnect from the gateway.
