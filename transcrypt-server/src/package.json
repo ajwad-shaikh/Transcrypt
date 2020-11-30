@@ -1,7 +1,7 @@
 {
-    "name": "fabcar",
+    "name": "transcrypt-server",
     "version": "1.0.0",
-    "description": "FabCar application implemented in JavaScript",
+    "description": "Transcrypt Backend Server Scripts",
     "engines": {
         "node": ">=8",
         "npm": ">=5"
