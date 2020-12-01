@@ -44,7 +44,7 @@ node enrollAdmin.js
 node registerUser.js
 
 # start the  backend server
-node fabcar-backend.js
+node backend.js
 # should display `Listening on port 4001` on the console, you might want to boot up another terminal for the next steps
 
 # moving on to the frontend now

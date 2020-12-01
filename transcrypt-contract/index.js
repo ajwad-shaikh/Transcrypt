@@ -6,8 +6,9 @@
 
 'use strict';
 
-const Transcrypt = require('./lib/Transcrypt');
-const FabCar = require('./lib/Transcrypt');
+const Transcrypt = require('./lib/transcrypt');
+const Degree = require('./lib/degree')
 
 module.exports.Transcrypt = Transcrypt;
-module.exports.contracts = [ Transcrypt ];
+module.exports.Degree = Degree;
+module.exports.contracts = [ Transcrypt, Degree ];

@@ -22,10 +22,13 @@ const styles = theme => ({
 class Create extends React.Component {
   state = {
     ID: null,
-    color: null,
-    make: null,
-    model: null,
-    owner: null
+    studentName: null,
+    program: null,
+    specialization: null,
+    university: null,
+    enrollmentId: null,
+    graduationDate: null,
+    creditsEarned: null,
   };
 
   handleChange = name => event => {
@@ -36,12 +39,13 @@ class Create extends React.Component {
 
   createHandler = () => {
     //Check form validity
-    if (!(this.state.ID && this.state.make && this.state.model && this.state.color && this.state.owner)){
+    if (!(this.state.ID && this.state.studentName && this.state.program && this.state.specialization && 
+          this.state.university && this.state.enrollmentId && this.state.graduationDate && this.state.creditsEarned)){
       alert('All fields must be filled in');
-    } else if (this.state.ID.slice(0,3) !== 'CAR') {
-        alert('ID MUST CONTAIN "CAR" FOLLOWED BY ID')
-    } else if (this.state.ID.slice(3).length > 3 || isNaN(this.state.ID.slice(3))) {
-        alert('ID MUST CONTAIN "CAR" FOLLOWED BY ID BETWEEN 0 AND 999')
+    } else if (this.state.ID.slice(0,6) !== 'DEGREE') {
+        alert('ID MUST CONTAIN "DEGREE" FOLLOWED BY ID')
+    } else if (this.state.ID.slice(6).length > 3 || isNaN(this.state.ID.slice(6))) {
+        alert('ID MUST CONTAIN "DEGREE" FOLLOWED BY ID BETWEEN 0 AND 999')
     } else {
       this.props.switchFeedHandler(1)
       this.props.socket.emit('REQUEST', {action: "CREATE", data:this.state})
@@ -54,41 +58,62 @@ class Create extends React.Component {
     return (
       <form className="Main-inside" noValidate autoComplete="off">
         <Typography  variant="display2">
-          Create a car
+          Create a Degree Record
         </Typography>
         <TextField
-          label="CAR ID"
+          label="Degree ID"
           className={classes.textField}
           value={this.state.name}
           onChange={this.handleChange('ID')}
           margin="normal"
         />
         <TextField
-          label="Colour"
+          label="Student Name"
           className={classes.textField}
           value={this.state.name}
-          onChange={this.handleChange('color')}
+          onChange={this.handleChange('studentName')}
           margin="normal"
         />
         <TextField
-          label="Make"
+          label="Program"
           className={classes.textField}
           value={this.state.name}
-          onChange={this.handleChange('make')}
+          onChange={this.handleChange('program')}
           margin="normal"
         />
         <TextField
-          label="Model"
+          label="Specialization"
           className={classes.textField}
           value={this.state.name}
-          onChange={this.handleChange('model')}
+          onChange={this.handleChange('specialization')}
           margin="normal"
         />
         <TextField
-          label="Owner"
+          label="University"
           className={classes.textField}
           value={this.state.name}
-          onChange={this.handleChange('owner')}
+          onChange={this.handleChange('university')}
+          margin="normal"
+        />
+        <TextField
+          label="Enrollment ID"
+          className={classes.textField}
+          value={this.state.name}
+          onChange={this.handleChange('enrollmentId')}
+          margin="normal"
+        />
+        <TextField
+          label="Graduation Date"
+          className={classes.textField}
+          value={this.state.name}
+          onChange={this.handleChange('graduationDate')}
+          margin="normal"
+        />
+        <TextField
+          label="Credits Earned"
+          className={classes.textField}
+          value={this.state.name}
+          onChange={this.handleChange('creditsEarned')}
           margin="normal"
         />
         <Button variant="contained" 
@@ -98,7 +123,7 @@ class Create extends React.Component {
                 onClick={this.createHandler}>
            {this.props.connected ? "CREATE" : "DISCONNECTED"}
         </Button>
-        <p>Car ID is case sensitive and should start with 'CAR' followed by digits (e.g. CAR10)</p>
+        <p>Degree ID is case sensitive and should start with 'DEGREE' followed by digits (e.g. DEGREE10)</p>
       </form>
       
     );

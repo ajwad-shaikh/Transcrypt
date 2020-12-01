@@ -24,9 +24,9 @@ const server = http.createServer(app);
 
 const io = socketIO(server);
 
-// This method checks if the given car exists and executes callback depending on success / failure
-async function carExists(contract, carID, success, failure) {
-    contract.evaluateTransaction('queryCar', carID).then((response) => {
+// This method checks if the given degree exists and executes callback depending on success / failure
+async function degreeExists(contract, degreeID, success, failure) {
+    contract.evaluateTransaction('queryDegreeRecord', degreeID).then((response) => {
         if (response) {
             success();
         } else {
@@ -90,8 +90,8 @@ async function invoke( request, socket) {
 
     query({
         contract,
-        chaincodeId: 'fabcar',
-        fcn: 'queryCar',
+        chaincodeId: 'transcrypt',
+        fcn: 'queryDegreeRecord',
         args: [args[0]],
     },
     socket
@@ -144,7 +144,7 @@ async function getParameters(socket, user) {
     const network = await gateway.getNetwork('mychannel');
 
     // Get the contract from the network.
-    const contract = network.getContract('fabcar');
+    const contract = network.getContract('transcrypt', 'Degree');
 
     return { gateway, contract };
 }
@@ -166,15 +166,15 @@ io.on('connection', async (socket) => {
                 type: 'START',
                 payload: `Request for QUERY for ${req.data.ID} received`,
             });
-            carExists(
+            degreeExists(
                 contract,
                 req.data.ID,
                 () => {
                     query(
                         {
                             contract,
-                            chaincodeId: 'fabcar',
-                            fcn: 'queryCar',
+                            chaincodeId: 'transcrypt',
+                            fcn: 'queryDegreeRecord',
                             args: [req.data.ID],
                         },
                         socket
@@ -197,48 +197,20 @@ io.on('connection', async (socket) => {
             query(
                 {
                     contract,
-                    chaincodeId: 'fabcar',
-                    fcn: 'queryAllCars',
+                    chaincodeId: 'transcrypt',
+                    fcn: 'queryAllDegrees',
                     args: [],
                 },
                 socket
             );
             break;
 
-        case 'TRANSFER':
-            socket.emit('RESPONSE', {
-                type: 'START',
-                payload: `Request for TRANSFER for ${req.data.ID} to ${req.data.newOwner} received`,
-            });
-            carExists(
-                contract,
-                req.data.ID,
-                () => {
-                    invoke(
-                        {
-                            contract,
-                            chaincodeId: 'fabcar',
-                            fcn: 'changeCarOwner',
-                            args: [req.data.ID, req.data.newOwner],
-                            chainId: 'mychannel',
-                        },
-                        socket
-                    );
-                },
-                () => {
-                    socket.emit('RESPONSE', {
-                        type: 'ERROR',
-                        payload: `${req.data.ID} DOES NOT EXIST!`,
-                    });
-                }
-            );
-            break;
         case 'CREATE':
             socket.emit('RESPONSE', {
                 type: 'START',
                 payload: `Request for CREATE for ${req.data.ID} received`,
             });
-            carExists(
+            degreeExists(
                 contract,
                 req.data.ID,
                 () => {
@@ -251,14 +223,17 @@ io.on('connection', async (socket) => {
                     invoke(
                         {
                             contract,
-                            chaincodeId: 'fabcar',
-                            fcn: 'createCar',
+                            chaincodeId: 'transcrypt',
+                            fcn: 'createDegreeRecord',
                             args: [
                                 req.data.ID,
-                                req.data.make,
-                                req.data.model,
-                                req.data.color,
-                                req.data.owner,
+                                req.data.studentName,
+                                req.data.program,
+                                req.data.specialization,
+                                req.data.enrollmentId,
+                                req.data.graduationDate,
+                                req.data.creditsEarned,
+                                req.data.university,
                             ],
                             chainId: 'mychannel',
                         },

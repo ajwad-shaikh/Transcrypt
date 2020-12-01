@@ -75,19 +75,15 @@ class CustomizedTabs extends React.Component {
         >
           <Tab
             classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
-            label="query"
+            label="query a degree record"
           />
           <Tab
             classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
-            label="query all"
+            label="query all degrees"
           />
           <Tab
             classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
-            label="transfer"
-          />
-          <Tab
-            classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
-            label="create"
+            label="issue a degree record"
           />
         </Tabs>
       </div>

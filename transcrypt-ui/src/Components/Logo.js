@@ -10,7 +10,7 @@ export default class Header extends Component {
             Welcome to
           </Typography>
         <Typography color="primary" variant="display3">
-            FabCar
+            Transcrypt
           </Typography>
         <br />
         <br />
