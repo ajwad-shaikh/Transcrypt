@@ -4,6 +4,7 @@ import MainNav from './MainNav';
 import Query from './Query';
 import QueryAll from './QueryAll';
 import Create from './Create';
+import Verification from './Verification';
 
 
 
@@ -32,6 +33,7 @@ class Main extends Component {
               {this.state.page === 0 ? <Query switchFeedHandler={this.props.switchFeedHandler} socket={this.props.socket} connected={this.props.connected}/> : null}
               {this.state.page === 1 ? <QueryAll switchFeedHandler={this.props.switchFeedHandler} socket={this.props.socket} connected={this.props.connected}/> : null}
               {this.state.page === 2 ? <Create switchFeedHandler={this.props.switchFeedHandler} socket={this.props.socket} connected={this.props.connected}/> : null}
+              {this.state.page === 3 ? <Verification switchFeedHandler={this.props.switchFeedHandler} socket={this.props.socket} connected={this.props.connected}/> : null}
           </ Paper>
     );
   }
