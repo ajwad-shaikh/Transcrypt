@@ -14,7 +14,8 @@ class Degree extends Contract {
         return degreeAsBytes.toString();
     }
 
-    async createDegreeRecord(ctx, degreeId, studentName, program, specialization, enrollmentId, graduationDate, creditsEarned, university) {
+    async createDegreeRecord(ctx, degreeId, studentName, program, specialization, 
+                                enrollmentId, graduationDate, creditsEarned, university, issuer) {
         console.info('============= START : Create Degree Record ===========');
 
         const degree = {
@@ -26,6 +27,7 @@ class Degree extends Contract {
             graduationDate,
             creditsEarned,
             university,
+            issuer
         };
 
         await ctx.stub.putState(degreeId, Buffer.from(JSON.stringify(degree)));

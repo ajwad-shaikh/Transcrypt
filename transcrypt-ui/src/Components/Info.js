@@ -40,7 +40,7 @@ function FolderList(props) {
                                 the degree of ${degree.Record.program} in ${degree.Record.specialization} with 
                                 all the rights, privileges and honors appertaining ${degree.Record.graduationDate}
                                 in recognition of the fulfillment of degree requirement of 
-                                ${degree.Record.creditsEarned} credits.`}
+                                ${degree.Record.creditsEarned} credits as issued by ${degree.Record.issuer}.`}
                   />
                 ) : (
                   <ListItemText primary={degree.Key} secondary={degree.Msg} />
