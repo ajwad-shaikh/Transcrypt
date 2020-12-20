@@ -15,6 +15,7 @@ class Transcrypt extends Contract {
                 graduationDate: '27-05-2021',
                 creditsEarned: '150',
                 university: 'IIITDM Jabalpur',
+                issuer: 'Registrar IIITDMJ (registrar@iiitdmj.ac.in)',
             },
             {
                 studentName: 'Ajwad Shaikh',
@@ -24,6 +25,7 @@ class Transcrypt extends Contract {
                 graduationDate: '27-05-2021',
                 creditsEarned: '150',
                 university: 'IIITDM Jabalpur',
+                issuer: 'Registrar IIITDMJ (registrar@iiitdmj.ac.in)',
             },
             {
                 studentName: 'Kanishk Goyal',
@@ -33,6 +35,7 @@ class Transcrypt extends Contract {
                 graduationDate: '27-05-2021',
                 creditsEarned: '150',
                 university: 'IIITDM Jabalpur',
+                issuer: 'Registrar IIITDMJ (registrar@iiitdmj.ac.in)',
             },
             {
                 studentName: 'Shailesh Bankar',
@@ -42,6 +45,7 @@ class Transcrypt extends Contract {
                 graduationDate: '27-05-2021',
                 creditsEarned: '150',
                 university: 'IIITDM Jabalpur',
+                issuer: 'Registrar IIITDMJ (registrar@iiitdmj.ac.in)',
             },
             {
                 studentName: 'Kaushal Sharma',
@@ -51,6 +55,7 @@ class Transcrypt extends Contract {
                 graduationDate: '27-05-2021',
                 creditsEarned: '150',
                 university: 'IIITDM Jabalpur',
+                issuer: 'Registrar IIITDMJ (registrar@iiitdmj.ac.in)',
             },
             {
                 studentName: 'Abhay Kesharwani',
@@ -60,6 +65,7 @@ class Transcrypt extends Contract {
                 graduationDate: '27-05-2021',
                 creditsEarned: '150',
                 university: 'IIITDM Jabalpur',
+                issuer: 'Registrar IIITDMJ (registrar@iiitdmj.ac.in)',
             },
         ];
 

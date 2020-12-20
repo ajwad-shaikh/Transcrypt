@@ -49,8 +49,24 @@ class Create extends Component {
       graduationDate: null,
       creditsEarned: null,
       anchorEl: null,
+      issuer: null,
       popOpen: false,
     };
+  }
+
+  componentDidUpdate() {
+    const { user } = this.props;
+    const { issuer } = this.state;
+    if(!issuer && user) {
+      this.setState({
+        issuer: `${user.displayName} (${user.email})`,
+      });
+    }
+    else if (issuer && !user) {
+      this.setState({
+        issuer: null,
+      });
+    }
   }
 
   handlePopoverOpen = (event) => {

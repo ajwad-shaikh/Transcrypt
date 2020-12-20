@@ -234,6 +234,7 @@ io.on('connection', async (socket) => {
                                 req.data.graduationDate,
                                 req.data.creditsEarned,
                                 req.data.university,
+                                req.data.issuer,
                             ],
                             chainId: 'mychannel',
                         },
