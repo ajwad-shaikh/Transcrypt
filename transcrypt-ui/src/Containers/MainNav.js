@@ -20,7 +20,7 @@ const styles = theme => ({
     textTransform: 'uppercase',
     minWidth: 72,
     fontWeight: theme.typography.fontWeightRegular,
-    marginRight: theme.spacing.unit * 4,
+    marginRight: theme.spacing(4),
     fontFamily: [
       '-apple-system',
       'BlinkMacSystemFont',
@@ -47,7 +47,7 @@ const styles = theme => ({
   },
   tabSelected: {},
   typography: {
-    padding: theme.spacing.unit * 3,
+    padding: theme.spacing(3),
   },
 });
 
@@ -84,10 +84,6 @@ class CustomizedTabs extends React.Component {
           <Tab
             classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
             label="issue a degree record"
-          />
-          <Tab
-            classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
-            label="Verify Record"
           />
         </Tabs>
       </div>
