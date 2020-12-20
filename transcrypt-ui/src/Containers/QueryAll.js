@@ -1,16 +1,18 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import AllInbox from "@material-ui/icons/AllInbox";
+import Error from "@material-ui/icons/Error";
 
-const styles = theme => ({
+const styles = (theme) => ({
   container: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    display: "flex",
+    flexWrap: "wrap",
   },
   textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
     width: 200,
   },
   menu: {
@@ -19,11 +21,9 @@ const styles = theme => ({
 });
 
 class QueryAll extends React.Component {
-  state = {
+  state = {};
 
-  };
-
-  handleChange = name => event => {
+  handleChange = (name) => (event) => {
     this.setState({
       [name]: event.target.value,
     });
@@ -33,23 +33,26 @@ class QueryAll extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div className="Main-inside" >
-      <Typography  variant="display2">
-      Query All Degrees
-      </Typography>
-      <br/>
-      <br/>
-        <Button variant="contained" color="primary" className={classes.button} disabled={!this.props.connected} onClick={ () => {
-            this.props.switchFeedHandler(1)
-            this.props.socket.emit('REQUEST', {action: "QUERYALL"})
-            }}>
-            {this.props.connected ? "SEARCH All" : "DISCONNECTED"}
+      <div className="Main-inside">
+        <Typography variant="h3">Query All Degrees</Typography>
+        <br />
+        <br />
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.button}
+          disabled={!this.props.connected}
+          startIcon={this.props.connected ? <AllInbox /> : <Error />}
+          onClick={() => {
+            this.props.switchFeedHandler(1);
+            this.props.socket.emit("REQUEST", { action: "QUERYALL" });
+          }}
+        >
+          {this.props.connected ? "LIST ALL" : "DISCONNECTED"}
         </Button>
       </div>
-      
     );
   }
 }
-
 
 export default withStyles(styles)(QueryAll);
