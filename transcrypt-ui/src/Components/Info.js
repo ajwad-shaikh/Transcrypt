@@ -5,8 +5,9 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
-import SchoolIcon from '@material-ui/icons/School';
+import SchoolIcon from "@material-ui/icons/School";
 import Logo from "../Components/Logo";
+import { ListItemAvatar } from "@material-ui/core";
 
 const styles = (theme) => ({
   root: {
@@ -23,13 +24,15 @@ function FolderList(props) {
   return (
     <div className={classes.root}>
       {props.data.length > 0 ? (
-        <List>
+        <List dense>
           {props.data.map((degree) => {
             return (
               <ListItem key={degree.Key}>
-                <Avatar>
-                  <SchoolIcon />
-                </Avatar>
+                <ListItemAvatar>
+                  <Avatar>
+                    <SchoolIcon />
+                  </Avatar>
+                </ListItemAvatar>
                 {degree.Record ? (
                   <ListItemText
                     primary={degree.Key}

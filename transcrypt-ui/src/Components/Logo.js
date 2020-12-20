@@ -9,7 +9,7 @@ export default class Header extends Component {
         <Typography color="textSecondary">
             Welcome to
           </Typography>
-        <Typography color="primary" variant="display3">
+        <Typography color="primary" variant="h2" fontWeight="fontWeightBold" >
             Transcrypt
           </Typography>
         <br />
